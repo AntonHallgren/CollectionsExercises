@@ -168,10 +168,14 @@ private static ArrayList<Integer> removeDuplicatesKeepOrder(List<Integer> number
 
 public static void exercise8()
 {
-    ArrayList<Integer> listA = new ArrayList<>(Arrays.asList(new Integer[]{0}));
+    ArrayList<Integer> listA = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+    ArrayList<Integer> listB = new ArrayList<>(Arrays.asList(3, 4, 5, 6, 7));
 }
 
-public static void mergeWithoutDuplicates()
+public static ArrayList<Integer> mergeWithoutDuplicates(List<Integer> listA, List<Integer> listB)
 {
-
+    ArrayList<Integer> merged = new ArrayList<>(listA);
+    merged.addAll(listB);
+    merged = removeDuplicatesKeepOrder(merged);
+    return merged;
 }
