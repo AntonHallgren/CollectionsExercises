@@ -8,6 +8,7 @@ void main() {
             case 1 -> shoppingList();
             case 2 -> uniqueCities();
             case 3 -> phoneBook();
+            case 4 -> findLargest();
             default -> IO.println("No exercise of that number has been completed");
         }
         if(running)
@@ -67,4 +68,15 @@ private static void phoneBook()
         return;
     }
     IO.println("Their number is: " + number);
+}
+
+private static void findLargest()
+{
+    int[] list = {14, 3, 78, 45, 22, 91, 7, 56};
+    int largest = list[0];//initiates on a number in the list to be sure that its value is not larger than the largest in the list
+    for(int i = 1; i < list.length; i++)//does not need to check the first element again
+    {
+        largest = Math.max(largest, list[i]);
+    }
+    IO.println(String.format("Largest number found: %d", largest));
 }
