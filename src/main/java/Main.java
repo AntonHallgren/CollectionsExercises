@@ -84,8 +84,13 @@ private static void findLargest(int[] list)
 private static void countByLetter(String[] names)
 {
     boolean validLetter = false;
-    char letter = '_';//.charAt(0);//should add some test to make sure it is actually a letter
-    while(!validLetter)
+    char letter = enterLetter();
+
+}
+
+private static char enterLetter()
+{
+    while(true)
     {
         String entered = IO.readln("Enter a letter: ").trim();
         if(entered.length() > 1)
@@ -98,13 +103,12 @@ private static void countByLetter(String[] names)
             IO.println("At least one letter need");
             continue;
         }
-        letter = entered.charAt(0);
+        char letter = entered.charAt(0);
         if(!Character.isLetter(letter))
         {
             IO.println("That is not a letter");
             continue;
         }
-        letter = Character.toLowerCase(letter);
-        validLetter = true;
+        return Character.toLowerCase(letter);
     }
 }
