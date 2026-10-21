@@ -152,6 +152,8 @@ private static void exercise7()
 private static ArrayList<Integer> removeDuplicatesKeepOrder(int[] numbers)
 {
     ArrayList<Integer> newList = new ArrayList<>();
+    /* a hash set seems like an appropriate tool to keep
+    track of what elements has already been seen. */
     HashSet<Integer> used = new HashSet<>();
     for(int n : numbers)
     {
