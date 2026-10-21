@@ -83,7 +83,6 @@ private static void findLargest(int[] list)
 
 private static void countByLetter(String[] names)
 {
-    boolean validLetter = false;
     char letter = enterLetter();
     int count = 0;
     for(String s : names)
@@ -92,12 +91,12 @@ private static void countByLetter(String[] names)
         {
             continue;
         }
-        if(Character.toUpperCase(s.charAt(0)) == letter)
+        if(Character.toUpperCase(s.charAt(0)) == Character.toUpperCase(letter))
         {
             count++;
         }
     }
-    IO.println(String.format("Found %d names matching starting with letter %c", count, letter));
+    IO.println(String.format("Found %d names starting with letter %c", count, letter));
 }
 
 private static char enterLetter()
@@ -121,6 +120,6 @@ private static char enterLetter()
             IO.println("That is not a letter");
             continue;
         }
-        return Character.toUpperCase(letter);
+        return letter;
     }
 }
