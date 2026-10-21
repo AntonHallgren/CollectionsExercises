@@ -8,9 +8,9 @@ void main() {
             case 1 -> shoppingList();
             case 2 -> uniqueCities();
             case 3 -> phoneBook();
-            case 4 -> findLargest(new int[]{14, 3, 78, 45, 22, 91, 7, 56});
-            case 5 -> countByLetter(new String[]{"Anna", "Bob", "Alice", "Charlie", "Amanda", "David", "Amy", "Brian"});
-            case 6 -> wordFrequency(new String[]{"apple", "banana", "apple", "orange", "banana", "apple", "grape", "orange"});
+            case 4 -> findLargest(Arrays.asList(14, 3, 78, 45, 22, 91, 7, 56));
+            case 5 -> countByLetter(Arrays.asList("Anna", "Bob", "Alice", "Charlie", "Amanda", "David", "Amy", "Brian"));
+            case 6 -> wordFrequency(Arrays.asList("apple", "banana", "apple", "orange", "banana", "apple", "grape", "orange"));
             case 7 -> exercise7();
             default -> IO.println("No exercise of that number has been completed");
         }
@@ -36,7 +36,7 @@ private static void shoppingList() {
     printNumberedList(shoppingList);
 }
 
-private static void printNumberedList(ArrayList<String> list)
+private static void printNumberedList(List<String> list)
 {
     for(int i = 0; i < list.size(); i++)
     {
@@ -73,17 +73,17 @@ private static void phoneBook()
     IO.println("Their number is: " + number);
 }
 
-private static void findLargest(int[] list)
+private static void findLargest(List<Integer> numbers)
 {
-    int largest = list[0];//initiates on a number in the list to be sure that its value is not larger than the largest in the list
-    for(int i = 1; i < list.length; i++)//does not need to check the first element again
+    int largest = numbers.getFirst();//initiates on a number in the list to be sure that its value is not larger than the largest in the list
+    for(int i = 1; i < numbers.size(); i++)//does not need to check the first element again
     {
-        largest = Math.max(largest, list[i]);
+        largest = Math.max(largest, numbers.get(i));
     }
     IO.println(String.format("Largest number found: %d", largest));
 }
 
-private static void countByLetter(String[] names)
+private static void countByLetter(List<String> names)
 {
     char letter = enterLetter();
     int count = 0;
@@ -126,7 +126,7 @@ private static char enterLetter()
     }
 }
 
-private static void wordFrequency(String[] words)
+private static void wordFrequency(List<String> words)
 {
     TreeMap<String, Integer> map = new TreeMap<>();
     for(String s : words)
@@ -144,12 +144,12 @@ private static void wordFrequency(String[] words)
 
 private static void exercise7()
 {
-    int[] numbers = {4, 7, 2, 7, 9, 4, 1, 9, 3};
-    ArrayList<Integer> list = removeDuplicatesKeepOrder(numbers);
+    Integer[] numbers = {4, 7, 2, 7, 9, 4, 1, 9, 3};
+    ArrayList<Integer> list = removeDuplicatesKeepOrder(Arrays.asList(numbers));
     IO.println(list);
 }
 
-private static ArrayList<Integer> removeDuplicatesKeepOrder(int[] numbers)
+private static ArrayList<Integer> removeDuplicatesKeepOrder(List<Integer> numbers)
 {
     ArrayList<Integer> newList = new ArrayList<>();
     /* a hash set seems like an appropriate tool to keep
@@ -168,7 +168,7 @@ private static ArrayList<Integer> removeDuplicatesKeepOrder(int[] numbers)
 
 public static void exercise8()
 {
-
+    ArrayList<Integer> listA = new ArrayList<>(Arrays.asList(new Integer[]{0}));
 }
 
 public static void mergeWithoutDuplicates()
