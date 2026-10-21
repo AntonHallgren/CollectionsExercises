@@ -7,6 +7,7 @@ void main() {
             case 0 -> running = false;
             case 1 -> shoppingList();
             case 2 -> uniqueCities();
+            case 3 -> phoneBook();
             default -> IO.println("No exercise of that number has been completed");
         }
         if(running)
@@ -48,4 +49,22 @@ private static void uniqueCities()
         IO.println(s);
     }
     IO.println(String.format("Total number of unique cities: %d", citiesSet.size()));
+}
+
+private static void phoneBook()
+{
+    HashMap<String, String> phoneBook = new HashMap<>();
+    phoneBook.put("Astrid", "1234567");
+    phoneBook.put("Pippi", "8910111");
+    phoneBook.put("Tommy", "2131415");
+    phoneBook.put("Anika", "1617181");
+
+    String name = IO.readln("Who do you want to look up: ");
+    String number = phoneBook.get(name);
+    if(number == null)
+    {
+        IO.println("Contact not found.");
+        return;
+    }
+    IO.println("Their number is: " + number);
 }
