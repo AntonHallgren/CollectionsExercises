@@ -10,6 +10,7 @@ void main() {
             case 3 -> phoneBook();
             case 4 -> findLargest(new int[]{14, 3, 78, 45, 22, 91, 7, 56});
             case 5 -> countByLetter(new String[]{"Anna", "Bob", "Alice", "Charlie", "Amanda", "David", "Amy", "Brian"});
+            case 6 -> wordFrequency(new String[]{"apple", "banana", "apple", "orange", "banana", "apple", "grape", "orange"});
             default -> IO.println("No exercise of that number has been completed");
         }
         if(running)
@@ -122,4 +123,9 @@ private static char enterLetter()
         }
         return letter;
     }
+}
+
+private static void wordFrequency(String[] words)
+{
+
 }
