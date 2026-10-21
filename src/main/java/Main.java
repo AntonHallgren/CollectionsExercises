@@ -17,6 +17,7 @@ void main() {
             case 8 -> exercise8();
             case 9 -> exercise9();
             case 10 -> exercise10();
+            case 11 -> exercise11();
             default -> IO.println("No exercise of that number has been completed");
         }
         if(running)
@@ -212,4 +213,16 @@ private void exercise10()
     cq.letIn();
     cq.letIn();
     cq.print();
+}
+
+private void exercise11()
+{
+    StudentGrades sg = new StudentGrades();
+    sg.add("Alice", 15);
+    sg.add("Bob", 10);
+    sg.add("Anna", 100);
+    sg.add("Charlie", 50);
+    sg.add("Brian", 4);
+    sg.add("Amanda", 50);
+    sg.printInOrder();
 }

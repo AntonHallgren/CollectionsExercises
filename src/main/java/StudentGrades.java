@@ -27,14 +27,14 @@ public class StudentGrades
         List<String> names = sortedStudents();
         for(String name : names)
         {
-            IO.println(String.format("Student: %s with grade  %d", name, grades.get(name)));
+            IO.println(String.format("Student: %s with grade %d", name, grades.get(name)));
         }
     }
 
     private List<String> sortedStudents()
     {
         ArrayList<String> names = new ArrayList<>(grades.keySet());
-        names.sort((n1, n2)->(grades.get(n1) - grades.get(n2)));
+        names.sort((n1, n2)->(grades.get(n2) - grades.get(n1)));
 
         return names;
     }
