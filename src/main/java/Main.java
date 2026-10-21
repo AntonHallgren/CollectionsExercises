@@ -13,6 +13,7 @@ void main() {
             case 6 -> wordFrequency(Arrays.asList("apple", "banana", "apple", "orange", "banana", "apple", "grape", "orange"));
             case 7 -> exercise7();
             case 8 -> exercise8();
+            case 9 -> exercise9();
             default -> IO.println("No exercise of that number has been completed");
         }
         if(running)
@@ -181,4 +182,18 @@ public static ArrayList<Integer> mergeWithoutDuplicates(List<Integer> listA, Lis
     merged.addAll(listB);
     merged = removeDuplicatesKeepOrder(merged);
     return merged;
+}
+
+public static void exercise9()
+{
+    SubmissionTracker st = new SubmissionTracker();
+    st.studentSubmitted("Bob");
+    st.studentSubmitted("Alice");
+    st.studentSubmitted("Charlie");
+    st.studentSubmitted("David");
+    st.studentSubmitted("Charlie");
+    st.studentSubmitted("Charlie");
+    st.studentSubmitted("Bob");
+    st.studentSubmitted("Alice");
+    st.print();
 }
