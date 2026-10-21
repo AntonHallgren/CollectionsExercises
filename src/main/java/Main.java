@@ -18,6 +18,7 @@ void main() {
             case 9 -> exercise9();
             case 10 -> exercise10();
             case 11 -> exercise11();
+            case 12 -> exercise12();
             default -> IO.println("No exercise of that number has been completed");
         }
         if(running)
@@ -225,4 +226,30 @@ private void exercise11()
     sg.add("Brian", 4);
     sg.add("Amanda", 50);
     sg.printInOrder();
+}
+
+private void exercise12()
+{
+    groupByFirstLetter(Arrays.asList(
+            "Alice", "Bob", "Anna", "Charlie", "Brian", "Amanda", "Carl"
+    ));
+}
+
+private void groupByFirstLetter(List<String> names)
+{
+    Map<Character, Set<String>> groups = new HashMap<>();
+    for(String name : names)
+    {
+        Character c = name.charAt(0);//could do be some proper checking
+        Set<String> group = groups.computeIfAbsent(c, k -> new HashSet<>());
+        group.add(name);
+    }
+    for(char c : groups.keySet())
+    {
+        IO.println(String.format("People starting with %c: ", c));
+        for(String name : groups.get(c))
+        {
+            IO.println(name);
+        }
+    }
 }
