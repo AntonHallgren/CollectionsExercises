@@ -12,6 +12,7 @@ void main() {
             case 5 -> countByLetter(Arrays.asList("Anna", "Bob", "Alice", "Charlie", "Amanda", "David", "Amy", "Brian"));
             case 6 -> wordFrequency(Arrays.asList("apple", "banana", "apple", "orange", "banana", "apple", "grape", "orange"));
             case 7 -> exercise7();
+            case 8 -> exercise8();
             default -> IO.println("No exercise of that number has been completed");
         }
         if(running)
@@ -170,6 +171,8 @@ public static void exercise8()
 {
     ArrayList<Integer> listA = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
     ArrayList<Integer> listB = new ArrayList<>(Arrays.asList(3, 4, 5, 6, 7));
+    ArrayList<Integer> merged = mergeWithoutDuplicates(listA, listB);
+    IO.println(String.format("Number of elements: %d\n Contents: %s", merged.size(), merged));
 }
 
 public static ArrayList<Integer> mergeWithoutDuplicates(List<Integer> listA, List<Integer> listB)
