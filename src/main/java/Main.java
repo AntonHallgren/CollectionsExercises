@@ -1,3 +1,5 @@
+//for comments on "Choose Your Collection" tasks, see their respective classes
+
 void main() {
     boolean running = true;
     while (running) {
@@ -14,6 +16,7 @@ void main() {
             case 7 -> exercise7();
             case 8 -> exercise8();
             case 9 -> exercise9();
+            case 10 -> exercise10();
             default -> IO.println("No exercise of that number has been completed");
         }
         if(running)
@@ -60,10 +63,10 @@ private static void uniqueCities()
 private static void phoneBook()
 {
     HashMap<String, String> phoneBook = new HashMap<>();
-    phoneBook.put("Astrid", "1234567");
-    phoneBook.put("Pippi", "8910111");
-    phoneBook.put("Tommy", "2131415");
-    phoneBook.put("Anika", "1617181");
+    phoneBook.put("Anna", "1234567");
+    phoneBook.put("Bob", "8910111");
+    phoneBook.put("Alice", "2131415");
+    phoneBook.put("Charlie", "1617181");
 
     String name = IO.readln("Who do you want to look up: ");
     String number = phoneBook.get(name);
@@ -196,4 +199,17 @@ public static void exercise9()
     st.studentSubmitted("Bob");
     st.studentSubmitted("Alice");
     st.print();
+}
+
+private void exercise10()
+{
+    ConcertQueue cq = new ConcertQueue();
+    String[] names = {"Anna", "Bob", "Alice", "Charlie", "Amanda", "David"};
+    for(String n : names)
+    {
+        cq.add(n);
+    }
+    cq.letIn();
+    cq.letIn();
+    cq.print();
 }
