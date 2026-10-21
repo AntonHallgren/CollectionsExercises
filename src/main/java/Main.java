@@ -127,5 +127,17 @@ private static char enterLetter()
 
 private static void wordFrequency(String[] words)
 {
+    TreeMap<String, Integer> map = new TreeMap<>();
+    for(String s : words)
+    {
+        //Intellij suggested this formulation
+        //I am not that familiar with maps, so I had to look up what it does
+        //Seems like what I want
+        map.merge(s, 1, Integer::sum);
+    }
+    for(String key : map.keySet())
+    {
+        IO.println(String.format("The word %s appeared %d times. ", key, map.get(key)));
+    }
 
 }
