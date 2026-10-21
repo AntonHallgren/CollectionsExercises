@@ -139,5 +139,20 @@ private static void wordFrequency(String[] words)
     {
         IO.println(String.format("The word %s appeared %d times. ", key, map.get(key)));
     }
+}
 
+
+private static ArrayList<Integer> removeDuplicatesKeepOrder(int[] numbers)
+{
+    ArrayList<Integer> newList = new ArrayList<>();
+    HashSet<Integer> used = new HashSet<>();
+    for(int n : numbers)
+    {
+        if(!used.contains(n))
+        {
+            used.add(n);
+            newList.add(n);
+        }
+    }
+    return  newList;
 }
