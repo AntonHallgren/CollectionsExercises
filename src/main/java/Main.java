@@ -85,7 +85,19 @@ private static void countByLetter(String[] names)
 {
     boolean validLetter = false;
     char letter = enterLetter();
-
+    int count = 0;
+    for(String s : names)
+    {
+        if(s == null || s.isEmpty())
+        {
+            continue;
+        }
+        if(Character.toUpperCase(s.charAt(0)) == letter)
+        {
+            count++;
+        }
+    }
+    IO.println(String.format("Found %d names matching starting with letter %c", count, letter));
 }
 
 private static char enterLetter()
@@ -109,6 +121,6 @@ private static char enterLetter()
             IO.println("That is not a letter");
             continue;
         }
-        return Character.toLowerCase(letter);
+        return Character.toUpperCase(letter);
     }
 }
