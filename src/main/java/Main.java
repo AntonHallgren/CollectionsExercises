@@ -11,6 +11,7 @@ void main() {
             case 4 -> findLargest(new int[]{14, 3, 78, 45, 22, 91, 7, 56});
             case 5 -> countByLetter(new String[]{"Anna", "Bob", "Alice", "Charlie", "Amanda", "David", "Amy", "Brian"});
             case 6 -> wordFrequency(new String[]{"apple", "banana", "apple", "orange", "banana", "apple", "grape", "orange"});
+            case 7 -> exercise7();
             default -> IO.println("No exercise of that number has been completed");
         }
         if(running)
@@ -141,6 +142,12 @@ private static void wordFrequency(String[] words)
     }
 }
 
+private static void exercise7()
+{
+    int[] numbers = {4, 7, 2, 7, 9, 4, 1, 9, 3};
+    ArrayList<Integer> list = removeDuplicatesKeepOrder(numbers);
+    IO.println(list);
+}
 
 private static ArrayList<Integer> removeDuplicatesKeepOrder(int[] numbers)
 {
