@@ -241,7 +241,7 @@ private void groupByFirstLetter(List<String> names)
     for(String name : names)
     {
         Character c = name.charAt(0);//could do be some proper checking
-        Set<String> group = groups.computeIfAbsent(c, k -> new HashSet<>());
+        Set<String> group = groups.computeIfAbsent(c, _ -> new HashSet<>());
         group.add(name);
     }
     for(char c : groups.keySet())
