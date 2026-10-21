@@ -2,11 +2,16 @@ void main() {
     boolean running = true;
     while (running) {
         int exercise = Integer.parseInt(IO.readln("Which exercise (pick 0 to quit): "));
+        IO.println();
         switch (exercise) {
             case 0 -> running = false;
             case 1 -> shoppingList();
             case 2 -> uniqueCities();
             default -> IO.println("No exercise of that number has been completed");
+        }
+        if(running)
+        {
+            IO.println();
         }
     }
 }
@@ -37,11 +42,7 @@ private static void printNumberedList(ArrayList<String> list)
 private static void uniqueCities()
 {
     String[] citiesToAdd = {"Stockholm", "Gothenburg", "Malmö", "Stockholm", "Uppsala", "Gothenburg", "Lund"};
-    HashSet<String> citiesSet = new HashSet<>();
-    for(String s : citiesToAdd)
-    {
-        citiesSet.add(s);
-    }
+    HashSet<String> citiesSet = new HashSet<>(Arrays.asList(citiesToAdd));
     for(String s : citiesSet)
     {
         IO.println(s);
