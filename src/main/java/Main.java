@@ -165,3 +165,13 @@ private static ArrayList<Integer> removeDuplicatesKeepOrder(int[] numbers)
     }
     return  newList;
 }
+
+public static void exercise8()
+{
+
+}
+
+public static void mergeWithoutDuplicates()
+{
+
+}
