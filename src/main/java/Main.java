@@ -19,6 +19,7 @@ void main() {
             case 10 -> exercise10();
             case 11 -> exercise11();
             case 12 -> exercise12();
+            case 13 -> exercise13();
             default -> IO.println("No exercise of that number has been completed");
         }
         if(running)
@@ -203,7 +204,7 @@ public static void exercise9()
     st.print();
 }
 
-private void exercise10()
+private static void exercise10()
 {
     ConcertQueue cq = new ConcertQueue();
     String[] names = {"Anna", "Bob", "Alice", "Charlie", "Amanda", "David"};
@@ -216,7 +217,7 @@ private void exercise10()
     cq.print();
 }
 
-private void exercise11()
+private static void exercise11()
 {
     StudentGrades sg = new StudentGrades();
     sg.add("Alice", 15);
@@ -228,14 +229,14 @@ private void exercise11()
     sg.printInOrder();
 }
 
-private void exercise12()
+private static void exercise12()
 {
     groupByFirstLetter(Arrays.asList(
             "Alice", "Bob", "Anna", "Charlie", "Brian", "Amanda", "Carl"
     ));
 }
 
-private void groupByFirstLetter(List<String> names)
+private static void groupByFirstLetter(List<String> names)
 {
     Map<Character, Set<String>> groups = new HashMap<>();
     for(String name : names)
@@ -252,4 +253,26 @@ private void groupByFirstLetter(List<String> names)
             IO.println(name);
         }
     }
+}
+
+private static void exercise13()
+{
+    findMostFrequentWord(Arrays.asList("cat", "dog", "cat", "bird", "dog", "cat", "fish", "dog", "dog"));
+}
+
+private static void findMostFrequentWord(List<String> words)
+{
+    Map<String, Integer> map = new HashMap<>();
+    String mostFrequent = null;
+    int frequency = 0;
+    for(String word : words)
+    {
+        map.merge(word, 1, Integer::sum);
+        if(map.get(word)>frequency)
+        {
+            mostFrequent = word;
+            frequency = map.get(word);
+        }
+    }
+    IO.println(String.format("The most frequent word is %s which appeared %d times", mostFrequent, frequency));
 }
