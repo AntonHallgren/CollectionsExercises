@@ -20,6 +20,7 @@ void main() {
             case 11 -> exercise11();
             case 12 -> exercise12();
             case 13 -> exercise13();
+            case 14 -> exercise14();
             default -> IO.println("No exercise of that number has been completed");
         }
         if(running)
@@ -275,4 +276,27 @@ private static void findMostFrequentWord(List<String> words)
         }
     }
     IO.println(String.format("The most frequent word is %s which appeared %d times", mostFrequent, frequency));
+}
+
+private static void exercise14()
+{
+    Integer[] l1 = {1, 3, 5, 7, 9, 11};
+    Integer[] l2 = {3, 6, 9, 12, 15};
+    IO.println("Common elements: " + commonElements(Arrays.asList(l1), Arrays.asList(l2)));
+}
+
+private static List<Integer> commonElements(List<Integer> l1, List<Integer> l2)
+{
+    Set<Integer> asSet = new HashSet<>(l2);
+    Set<Integer> alreadyAdded = new HashSet<>();
+    List<Integer> common = new ArrayList<>();
+    for(int value : l1)
+    {
+        if(asSet.contains(value) && !alreadyAdded.contains(value))
+        {
+            common.add(value);
+            alreadyAdded.add(value);
+        }
+    }
+    return common;
 }
