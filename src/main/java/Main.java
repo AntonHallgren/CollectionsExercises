@@ -22,6 +22,8 @@ void main() {
             case 13 -> exercise13();
             case 14 -> exercise14();
             case 15 -> exercise15();
+            case 16 -> exercise16();
+            case 17 -> exercise17();
             default -> IO.println("No exercise of that number has been completed");
         }
         if(running)
@@ -321,4 +323,46 @@ private static void twoSum(List<Integer> numbers, int target)
         }
     }
     IO.println("No pair of numbers in the list sum to " + target);
+}
+
+private static void exercise16()
+{
+    Integer[] numbers = {34, 78, 23, 78, 91, 56, 91, 12};
+    int second = secondLargest(Arrays.asList(numbers));
+    IO.println("Second largest number: " + second);
+}
+
+private static int secondLargest(List<Integer> numbers)
+{
+    if(numbers.size() < 2)
+    {
+        throw new IllegalArgumentException("List needs at least two elements");
+    }
+    int largest = Math.max(numbers.get(0), numbers.get(1));
+    int second = Math.min(numbers.get(0), numbers.get(1));
+    for(int i = 2; i < numbers.size(); i++)
+    {
+        int next = numbers.get(i);
+        if(next == largest || next == second)
+        {
+            continue;//ignore repeated values
+        }
+        if(next < second)
+        {
+            continue;//not large enough to matter
+        }
+        if(next < largest)
+        {
+            second = next;//new second largest
+            continue;
+        }
+        second = largest;//new largest
+        largest = next;
+    }
+    return second;
+}
+
+private static void exercise17()
+{
+
 }
