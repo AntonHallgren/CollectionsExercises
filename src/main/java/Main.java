@@ -21,6 +21,7 @@ void main() {
             case 12 -> exercise12();
             case 13 -> exercise13();
             case 14 -> exercise14();
+            case 15 -> exercise15();
             default -> IO.println("No exercise of that number has been completed");
         }
         if(running)
@@ -299,4 +300,25 @@ private static List<Integer> commonElements(List<Integer> l1, List<Integer> l2)
         }
     }
     return common;
+}
+
+private static void exercise15()
+{
+    Integer[] list = {2, 7, 11, 15, 4, 6};
+    int target = 13;
+    twoSum(Arrays.asList(list), target);
+}
+
+private static void twoSum(List<Integer> numbers, int target)
+{
+    Set<Integer> numbersInSet = new HashSet<>(numbers);
+    for(int number : numbers)
+    {
+        if(numbersInSet.contains(target-number))
+        {
+            IO.println(String.format("The list contains the numbers %d and %d that sum to %d", number, target-number, target));
+            return;//
+        }
+    }
+    IO.println("No pair of numbers in the list sum to " + target);
 }
