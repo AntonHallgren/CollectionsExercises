@@ -364,5 +364,35 @@ private static int secondLargest(List<Integer> numbers)
 
 private static void exercise17()
 {
+    String[] strings = {"java", "python", "java", "c++", "python", "java", "ruby", "c++", "python", "ruby", "java"};
+    top3MostFrequent(Arrays.asList(strings));
+}
 
+private static void top3MostFrequent(List<String> words)
+{
+    Map<String, Integer> map = new HashMap<>();
+    for(String word : words)
+    {
+        map.merge(word, 1, Integer::sum);
+    }
+    for(int i = 0; i < 3; i++)
+    {
+        String most = highestCount(map);
+        IO.println(String.format("Place %d: %s, %d occurrences", i+1, most, map.get(most)));
+        map.remove(most);
+    }
+}
+
+private static String highestCount(Map<String, Integer> map)
+{
+    List<String> strings = new ArrayList<>(map.keySet());
+    String mostFrequent = strings.getFirst();
+    for(String s : strings)
+    {
+        if(map.get(s) > map.get(mostFrequent))
+        {
+            mostFrequent = s;
+        }
+    }
+    return mostFrequent;
 }
